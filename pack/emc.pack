@@ -1,7 +1,7 @@
 {
 "name": "emc",
 
-"description": "Checks for Clariion storage box",
+"description": "Checks for EMC² Clariion, VNX and VNX2 Block arrays",
 
 "path":"storage/",
 

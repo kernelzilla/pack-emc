@@ -2,7 +2,7 @@
 
 # nagios: -epn
 # ------------------------------------------------------------------------------
-# check_emc_clariion.pl - checks the EMC CLARIION SAN devices
+# check_emc_clariion.pl - checks for EMC² Clariion, VNX and VNX2 Block arrays.
 # Copyright (C) 2005  NETWAYS GmbH, www.netways.de
 # Author: Michael Streb <michael.streb@netways.de>
 #
@@ -562,7 +562,7 @@ __END__
 
 =head1 NAME
 
-check_emc_clariion.pl - Checks EMC SAN devices for NAGIOS.
+check_emc_clariion.pl - Checks for EMC² Clariion, VNX and VNX2 Block arrays for Shinken.
 
 
 =head1 SYNOPSIS
@@ -576,7 +576,8 @@ check_emc_clariion.pl -H <host> -u <user> -p <password> -t <checktype>
 
 =head1 DESCRIPTION
 
-B<check_emc_clariion.pl> receives the data from the emc devices via Navicli or Naviseccli if user and password are provided.
+B<check_emc_clariion.pl> receives the data from the SAN Service Processor Management Service (CIMOM) via Navicli or Naviseccli if user and password are provided.
+
 
 
 =head1 OPTIONS
@@ -589,16 +590,16 @@ Display this helpmessage.
 
 =item B<-H>
 
-The hostname or ipaddress of the emc storage processor device.
+The hostname or IP address of the EMC² storage processor device.
 
 =item B<-u>
 
-The user used to connect to the emc storage processor device with Naviseccli.
+The user used to connect to the EMC² storage processor device with Naviseccli.
 You must use this option with -password !
 
 =item B<-p>
 
-The password of the user used to connect to the emc storage processor device with Naviseccli.
+The password of the user used to connect to the EMC² storage processor device with Naviseccli.
 
 =item B<-t>
 
@@ -608,19 +609,19 @@ The check type to execute:
 
 =head2 TYPES 
 
-the following checks are currently available
+The following checks are currently available:
 
-sp   - check the status of the storage processors
+sp   - Check the status of the storage processors
 
-disk - check the status of the physical disks attached in the DAE`s
+disk - Check the status of the physical disks attached in the DAE`s
 
-cache - check the status of the read and write cache
+cache - Check the status of the read and write cache
 
 faults - Report the different faults on the array
 
-portstate - check the status of the FC ports in the SP`s
+portstate - Check the status of the FC ports in the SP`s
 
-hbastate - check the connection state of the specified node
+hbastate - Check the connection state of the specified node
 
 =head3 TYPE OPTIONS
 
@@ -676,4 +677,4 @@ NETWAYS GmbH, 2008, http://www.netways.de.
 
 Written by Michael Streb <michael.streb@netways.de>.
 
-Please report bugs through the contact of Nagios Exchange, http://www.nagiosexchange.org. 
+Please report bugs through the GitHub Issues page: https://github.com/shinken-monitoring/pack-emc
