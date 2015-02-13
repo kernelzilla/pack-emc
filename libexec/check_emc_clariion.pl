@@ -51,6 +51,7 @@ use vars qw (
   $opt_node
   $opt_user
   $opt_password
+  $opt_scope
 
   $output
 
@@ -102,6 +103,7 @@ GetOptions(
 	'u=s'     => \$opt_user,
 	'p=s'     => \$opt_password,
 	'port=s'  => \$opt_port,
+	'scope=s'  => \$opt_scope,
 	'paths=s' => \$opt_pathcount
   ) || print_help(2);
 
@@ -154,7 +156,7 @@ sub check_sp {
 		open (NAVICLIOUT ,"$NAVICLI -h $opt_host getcrus |");
 	}
 	if ($secure eq 1 ) {
-		open (NAVICLIOUT ,"$NAVISECCLI -User $opt_user -Password $opt_password -Scope 0 -h $opt_host getcrus |");
+		open (NAVICLIOUT ,"$NAVISECCLI -User $opt_user -Password $opt_password -Scope $opt_scope -h $opt_host getcrus |");
 	}
 	my $sp_line = 0;
 	my $error_count = 0;
@@ -227,7 +229,7 @@ sub check_disk {
 		open (NAVICLIOUT ,"$NAVICLI -h $opt_host getdisk -state |");
 	}
 	if ($secure eq 1 ) {
-		open (NAVICLIOUT ,"$NAVISECCLI -User $opt_user -Password $opt_password -Scope 0 -h $opt_host getdisk -state |");
+		open (NAVICLIOUT ,"$NAVISECCLI -User $opt_user -Password $opt_password -Scope $opt_scope -h $opt_host getdisk -state |");
 	}
 	while (<NAVICLIOUT>) {
 		# check for disk lines
@@ -291,7 +293,7 @@ sub check_cache {
 		open (NAVICLIOUT ,"$NAVICLI -h $opt_host getcache |");
 	}
 	if ($secure eq 1 ) {
-		open (NAVICLIOUT ,"$NAVISECCLI -User $opt_user -Password $opt_password -Scope 0 -h $opt_host getcache |");
+		open (NAVICLIOUT ,"$NAVISECCLI -User $opt_user -Password $opt_password -Scope $opt_scope -h $opt_host getcache |");
 	}
 	while (<NAVICLIOUT>) {
 		# check for cache
@@ -347,7 +349,7 @@ sub check_faults {
 		exit $states{$state};
 	}
 	if ($secure eq 1 ) {
-		open (NAVICLIOUT ,"$NAVISECCLI -User $opt_user -Password $opt_password -Scope 0 -h $opt_host Faults -list |");
+		open (NAVICLIOUT ,"$NAVISECCLI -User $opt_user -Password $opt_password -Scope $opt_scope -h $opt_host Faults -list |");
 	}
 	while (<NAVICLIOUT>) {
 		# check for faults on the array
@@ -385,7 +387,7 @@ sub check_portstate {
 		open (NAVICLIOUT ,"$NAVICLI -h $opt_host getall -hba |");
 	}
 	if ($secure eq 1 ) {
-		open (NAVICLIOUT ,"$NAVISECCLI -User $opt_user -Password $opt_password -Scope 0 -h $opt_host getall -hba |");
+		open (NAVICLIOUT ,"$NAVISECCLI -User $opt_user -Password $opt_password -Scope $opt_scope -h $opt_host getall -hba |");
 	}
 	while (<NAVICLIOUT>) {
 		# check for port lines
@@ -481,7 +483,7 @@ sub check_hbastate {
 		open (NAVICLIOUT ,"$NAVICLI -h $opt_host getall -hba |");
 	}
 	if ($secure eq 1 ) {
-		open (NAVICLIOUT ,"$NAVISECCLI -User $opt_user -Password $opt_password -Scope 0 -h $opt_host getall -hba |");
+		open (NAVICLIOUT ,"$NAVISECCLI -User $opt_user -Password $opt_password -Scope $opt_scope -h $opt_host getall -hba |");
 	}
 	while (<NAVICLIOUT>) {
 		if ($_ =~ m/Information\sabout\seach\sHBA/) {
