@@ -16,6 +16,7 @@ https://github.com/emc-openstack/naviseccli
 You will need to change the credential variables in etc/resource.d/emc.cfg:
 
 $NAVISECCLIUSER$=admin
+
 $NAVISECCLIPASSWORD$=admin
 
 
@@ -24,6 +25,7 @@ If you have installed the package to a different directory change the following
 variables in libexec/check_emc_clariion.pl:
 
 $NAVICLI = '/opt/Navisphere/bin/navicli';
+
 $NAVISECCLI = '/opt/Navisphere/bin/naviseccli';
 
 

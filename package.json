@@ -4,7 +4,7 @@
 	"version": "1.4",
 	"homepage": "https://github.com/shinken-monitoring/pack-emc",
 	"author": "Jean Gabes",
-	"description": "Checks for Clariion storage box",
+	"description": "Checks for EMC² Clariion, VNX and VNX2 Block arrays",
 	"contributors": [
 	  {
 		"name": "Jean Gabes",
@@ -13,13 +13,22 @@
 	  {
 		"name": "Imrane Dessai",
 		"email": "dessai.imrane@gmail.com"
-	  } 
+	  },
+         {
+                "name": "Patrick Jacques",
+                "email": "kernelzilla@kernelzilla.org"
+          }
 	],
 	"repository": "https://github.com/shinken-monitoring/pack-emc",
 	"keywords": [
 	  "pack",
 	  "emc",
-	  "clariion"
+	  "clariion",
+	  "vnx",
+	  "vnx2",
+	  "unified",
+	  "array",
+	  "storage"
 	],
 	"dependencies": {
 	  "shinken": ">=1.4"
